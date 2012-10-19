@@ -1832,12 +1832,10 @@ status_t AudioHardware::doAudioRouteOrMuteHTC(uint32_t device)
         }
     }
 
-<<<<<<< HEAD
     ALOGV("doAudioRouteOrMuteHTC() rx acdb %d, tx acdb %d", rx_acdb_id, tx_acdb_id);
     ALOGV("doAudioRouteOrMuteHTC() device %x, mMode %d, mMicMute %d",
             device, mMode, mMicMute);
     return do_route_audio_rpc(device, isInCall(), mMicMute, rx_acdb_id, tx_acdb_id);
-=======
 
     ALOGV("doAudioRouteOrMuteHTC: rx acdb %d, tx acdb %d", rx_acdb_id, tx_acdb_id);
     ALOGV("doAudioRouteOrMuteHTC() device %x, mMode %d, mMicMute %d", device, mMode, mMicMute);
@@ -1847,7 +1845,6 @@ status_t AudioHardware::doAudioRouteOrMuteHTC(uint32_t device)
 #else
     return do_route_audio_rpc(device, !isInCall(), mMicMute, rx_acdb_id, tx_acdb_id);
 #endif
->>>>>>> 0182ea57e563fbba94d3da1e6f880fc6f0b64d5f
 }
 
 // always call with mutex held
@@ -1875,12 +1872,9 @@ status_t AudioHardware::doAudioRouteOrMute(uint32_t device)
 #else
         ALOGV("doAudioRouteOrMute() device %d, mMode %d, mMicMute %d",
                 device, mMode, mMicMute);
-<<<<<<< HEAD
         ret = do_route_audio_rpc(device, isInCall(), mMicMute, 0, 0);
-=======
         ret = do_route_audio_rpc(device, !isInCall(), mMicMute, 0, 0);
 #endif
->>>>>>> 0182ea57e563fbba94d3da1e6f880fc6f0b64d5f
     } else
         ret = doAudioRouteOrMuteHTC(device);
 
